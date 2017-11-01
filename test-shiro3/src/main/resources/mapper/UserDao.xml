@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh51net.test.dao.UserDao">
+
+	<select id="queryAllPremissions" parameterType="String" resultType="String">
+		select p.permissions from sys_user u,sys_user_role ur,sys_per p where u.id=ur.user_id and p.role_id=ur.user_id and u.username=#{username}
+	</select> 
+	
+	<select id="queryByUsername" parameterType="String" resultType="com.wh51net.test.entity.User">
+		select * from sys_user where username=#{username}
+	</select>
+	
+</mapper> 
